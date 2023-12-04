@@ -1,3 +1,9 @@
 https://miro.com/app/board/uXjVNJKUkws=/
 
 a faire: récupérer le script du shooter pour les variables croisées (ressources etc...)
+
+ajouter:
+- 3 merveilles
+	-> amélioration pop (hopital?)
+	-> Amélioration bâtiments (maçons?)
+	-> amélioration merveilles (palais?)
