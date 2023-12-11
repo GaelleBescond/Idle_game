@@ -1,9 +1,26 @@
 https://miro.com/app/board/uXjVNJKUkws=/
 
 a faire: récupérer le script du shooter pour les variables croisées (ressources etc...)
+Ajouter clicker
+
 
 ajouter:
 - 3 merveilles
-	-> amélioration pop (hopital?)
+	-> amélioration auto pop (hopital?)
 	-> Amélioration bâtiments (maçons?)
 	-> amélioration merveilles (palais?)
+-> Amélioraton rendement (ticking speed) (roads?)
+
+Ajouter sprites
+
+
+Revoir le wireframe, déroulement des menus etc...
+
+génération de population. allocation de travailleurs à une tâche
+clic = + 1 pop (modifié par niveau hôpital)
+autoclick = +1 pop toutes les 5 secondes (modifié par niveau hôpital)
+assignation d'ouvriers gratuite (enlever prix d'achat)
+ouvriers consomment nourriture et un peu d'or (coût d'entretien)
+bâtiments améliorent rendements des ouvriers, nécessitent bois pour entretien
+si famine, supprimer 1 pop au hasard pour chaque entretien manquant
+si manque de bois, supprimer 1 bâtiment au hasard pour chaque entretien manquant

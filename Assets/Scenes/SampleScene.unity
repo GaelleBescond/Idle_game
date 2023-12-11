@@ -3166,12 +3166,12 @@ MonoBehaviour:
   food: 0
   wood: 0
   gold: 0
-  farmers: 1
-  lumberjacks: 1
-  merchants: 1
-  farms: 1
-  sawmills: 1
-  markets: 1
+  farmers: 0
+  lumberjacks: 0
+  merchants: 0
+  farms: 0
+  sawmills: 0
+  markets: 0
   resources_food: {fileID: 847966773}
   resources_wood: {fileID: 195578284}
   resources_gold: {fileID: 958406519}

@@ -8,9 +8,7 @@ public class Interactible : MonoBehaviour
     private int _object;
     public Ticking_Resources _resources;
     public TextMeshProUGUI resourcetext;
-    public int food_cost;
-    public int wood_cost;
-    public int gold_cost;
+    public int food_cost, wood_cost, gold_cost;
     public ObjectTypes objectType;
    // public float cost_augmenter = 1.1f;
 
@@ -33,6 +31,7 @@ public class Interactible : MonoBehaviour
             _resources.wood -= wood_cost;
             _resources.gold -= gold_cost;
 
+            //increase cost for object
             food_cost = food_cost * 110 / 100;
             wood_cost = wood_cost * 110 / 100;
             gold_cost = gold_cost * 110 / 100;

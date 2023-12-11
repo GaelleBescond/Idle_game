@@ -9,24 +9,9 @@ public class Ticking_Resources : MonoBehaviour
 
     public float ticking_time;
     private bool pause = false;
-    public int food;
-    public int wood;
-    public int gold;
-    public int farmers;
-    public int lumberjacks;
-    public int merchants;
-    public int farms;
-    public int sawmills;
-    public int markets;
-    public TextMeshProUGUI resources_food;
-    public TextMeshProUGUI resources_wood;
-    public TextMeshProUGUI resources_gold;
-    public TextMeshProUGUI production_food;
-    public TextMeshProUGUI production_wood;
-    public TextMeshProUGUI production_gold;
-    private int food_yield;
-    private int wood_yield;
-    private int gold_yield;
+    public int food, wood, gold, farmers, lumberjacks, merchants, farms, sawmills, markets;
+    public TextMeshProUGUI resources_food, resources_wood, resources_gold, production_food, production_wood, production_gold;
+    private int food_yield, wood_yield, gold_yield;
     // Start is called before the first frame update
     void Start()
     {
