@@ -4,10 +4,10 @@ using UnityEngine;
 
 public enum ObjectTypes
 {
-    farmer,
-    lumberjack,
-    merchant,
-    farm,
-    sawmill,
-    market,
+    push,
+    commit,
+    resolve,
+    collaborator,
+    branch
+
 }
