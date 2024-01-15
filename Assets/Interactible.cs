@@ -9,8 +9,6 @@ public class Interactible : MonoBehaviour
     public SceneManager sceneManager;
     public TextMeshProUGUI resourcetext;
     public ObjectTypes objectType;
-    // public float cost_augmenter = 1.1f;
-
 
     // Start is called before the first frame update
     void Start()
@@ -18,15 +16,13 @@ public class Interactible : MonoBehaviour
 
     }
 
-
-
     public void RiseScore(int amount)
     {
 
         switch (objectType)
         {
             case ObjectTypes.push:
-                sceneManager.push_score += 1 + sceneManager.commit_score * sceneManager.branch_score;
+                sceneManager.push_score += (1 + sceneManager.commit_score) * (1 + sceneManager.branch_score);
                 resourcetext.text = sceneManager.push_score.ToString("");
                 break;
 
@@ -45,11 +41,17 @@ public class Interactible : MonoBehaviour
                 resourcetext.text = sceneManager.branch_score.ToString("");
                 break;
             case ObjectTypes.resolve:
-                sceneManager.conflict_score++;
-                resourcetext.text = sceneManager.conflict_score.ToString("");
+                if (sceneManager.conflict_score < 30)
+                {
+                    sceneManager.conflict_score++;
+                    resourcetext.text = sceneManager.conflict_score.ToString("");
+                    sceneManager.Newtimer();
+                }
                 break;
         }
 
 
     }
+
+
 }

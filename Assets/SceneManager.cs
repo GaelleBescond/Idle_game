@@ -6,27 +6,37 @@ using System.Resources;
 
 public class SceneManager : MonoBehaviour
 {
-
+    public Interactible interactibles;
     public float ticking_time;
+    public float timer;
     private bool pause = false;
-    public TextMeshProUGUI score, resources;
     public int push_score, commit_score, branch_score, collaborator_score, conflict_score;
     // Start is called before the first frame update
     void Start()
     {
-      //  StartCoroutine(ResourceTicking());
+        timer = ticking_time;
+        StartCoroutine(Autoclick());
     }
 
     public IEnumerator Autoclick()
     {
         while (true)
         {
-            if (!pause)
+            for (int i = 0; i < collaborator_score; i++)
             {
-            
+                interactibles.RiseScore(1);
             }
+
+            yield return new WaitForSeconds(timer);
         }
     }
+
+    public void Newtimer()
+    {
+        timer -= Mathf.Log(conflict_score)/ ticking_time;
+        
+    }
+
 
 
 }
