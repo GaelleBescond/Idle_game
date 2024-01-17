@@ -27,26 +27,40 @@ public class Interactible : MonoBehaviour
                 break;
 
             case ObjectTypes.commit:
-                sceneManager.commit_score++;
-                resourcetext.text = sceneManager.commit_score.ToString("");
-                break;
-
-            case ObjectTypes.collaborator:
-                sceneManager.collaborator_score++;
-                resourcetext.text = sceneManager.collaborator_score.ToString("");
+                if (sceneManager.push_score > (10 + sceneManager.commit_score) * (2 + sceneManager.commit_score))
+                {
+                    sceneManager.commit_score++;
+                    resourcetext.text = sceneManager.commit_score.ToString("");
+                }
                 break;
 
             case ObjectTypes.branch:
-                sceneManager.branch_score++;
-                resourcetext.text = sceneManager.branch_score.ToString("");
+                if (sceneManager.commit_score > (10 + sceneManager.branch_score) * (1 + sceneManager.branch_score))
+                {
+                    sceneManager.branch_score++;
+                    resourcetext.text = sceneManager.branch_score.ToString("");
+                }
                 break;
+
+            case ObjectTypes.collaborator:
+                if (sceneManager.commit_score > (10 + 10 * sceneManager.collaborator_score)
+                    && (sceneManager.branch_score) > (10 + sceneManager.collaborator_score))
+                {
+                    sceneManager.commit_score -= 10 + 10 * sceneManager.collaborator_score;
+                    sceneManager.branch_score -= 10 + sceneManager.collaborator_score;
+                    sceneManager.collaborator_score++;
+                    resourcetext.text = sceneManager.collaborator_score.ToString("");
+                }
+                sceneManager.Newtimer();
+                break;
+
             case ObjectTypes.resolve:
-                if (sceneManager.conflict_score < 30)
+                if (sceneManager.push_score > 100 * (sceneManager.commit_score + sceneManager.branch_score))
                 {
                     sceneManager.conflict_score++;
                     resourcetext.text = sceneManager.conflict_score.ToString("");
-                    sceneManager.Newtimer();
                 }
+
                 break;
         }
 
