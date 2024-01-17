@@ -1,0 +1,2 @@
+Collaborators = ticking time
+Conflicts = Collaborator modifier on click

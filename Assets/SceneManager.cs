@@ -9,12 +9,13 @@ public class SceneManager : MonoBehaviour
     public Interactible interactibles;
     public float ticking_time;
     public float timer;
+    public Animator logoCycleSpeed;
     private bool pause = false;
     public int push_score, commit_score, branch_score, collaborator_score, conflict_score;
     // Start is called before the first frame update
     void Start()
     {
-        timer = ticking_time;
+      
         StartCoroutine(Autoclick());
     }
 
@@ -33,8 +34,10 @@ public class SceneManager : MonoBehaviour
 
     public void Newtimer()
     {
-        timer -= Mathf.Log(conflict_score)/ ticking_time;
-        
+        timer = (Mathf.Log(conflict_score) / (ticking_time));
+        logoCycleSpeed.SetFloat("Speed", timer);
+        Debug.Log(timer);
+
     }
 
 
