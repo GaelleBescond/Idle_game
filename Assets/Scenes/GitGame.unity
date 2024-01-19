@@ -7510,9 +7510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98e9e638a1301a478d334dbbb2ceae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactibles: {fileID: 662264604}
+  interactibles: {fileID: 801610799}
   ticking_time: 10
-  timer: 0
   logoCycleSpeed: {fileID: 2067214191}
   push_score: 0
   commit_score: 0

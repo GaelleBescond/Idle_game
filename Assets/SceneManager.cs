@@ -8,35 +8,37 @@ public class SceneManager : MonoBehaviour
 {
     public Interactible interactibles;
     public float ticking_time;
-    public float timer;
+    private float timer;
     public Animator logoCycleSpeed;
     private bool pause = false;
     public int push_score, commit_score, branch_score, collaborator_score, conflict_score;
     // Start is called before the first frame update
     void Start()
     {
-      
-        StartCoroutine(Autoclick());
+        timer = ticking_time;
     }
 
     public IEnumerator Autoclick()
     {
         while (true)
         {
-            for (int i = 0; i < collaborator_score; i++)
-            {
-                interactibles.RiseScore(1);
-            }
-
+            interactibles.RiseScore(1+conflict_score);
+            Debug.Log(timer);
             yield return new WaitForSeconds(timer);
         }
     }
 
     public void Newtimer()
     {
-        timer = (Mathf.Log(conflict_score) / (ticking_time));
-        logoCycleSpeed.SetFloat("Speed", timer);
-        Debug.Log(timer);
+        StopCoroutine(Autoclick());
+        if (collaborator_score > 0)
+        {
+            timer = (Mathf.Log(collaborator_score) / (ticking_time));
+            logoCycleSpeed.SetFloat("Speed", timer);
+            StartCoroutine(Autoclick());
+        }
+
+
 
     }
 

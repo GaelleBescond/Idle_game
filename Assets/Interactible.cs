@@ -21,21 +21,23 @@ public class Interactible : MonoBehaviour
 
         switch (objectType)
         {
-            case ObjectTypes.push:
-                sceneManager.push_score += (1 + sceneManager.commit_score) * (1 + sceneManager.branch_score);
-                resourcetext.text = sceneManager.push_score.ToString("");
+            case ObjectTypes.commit:
+                sceneManager.commit_score += (1 + sceneManager.push_score) * (1 + sceneManager.branch_score);
+                resourcetext.text = sceneManager.commit_score.ToString("");
+              
                 break;
 
-            case ObjectTypes.commit:
-                if (sceneManager.push_score > (10 + sceneManager.commit_score) * (2 + sceneManager.commit_score))
+            case ObjectTypes.push:
+                if (sceneManager.commit_score > (10 + sceneManager.push_score) * (2 + sceneManager.push_score))
                 {
-                    sceneManager.commit_score++;
-                    resourcetext.text = sceneManager.commit_score.ToString("");
+                    sceneManager.push_score++;
+                    resourcetext.text = sceneManager.push_score.ToString("");
                 }
                 break;
+        
 
             case ObjectTypes.branch:
-                if (sceneManager.commit_score > (10 + sceneManager.branch_score) * (1 + sceneManager.branch_score))
+                if (sceneManager.push_score > (10 + sceneManager.branch_score) * (1 + sceneManager.branch_score))
                 {
                     sceneManager.branch_score++;
                     resourcetext.text = sceneManager.branch_score.ToString("");
